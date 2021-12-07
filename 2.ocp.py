@@ -1,26 +1,37 @@
 """
 Open-Closed Principle
-
 Classes devem estar fechadas para modificação, mas abertas para extensão
 """
-class Animal:
+from abstract import ABC, abstractmethod
+class Animal(ABC):
     def __init__(self, name: str):
         self.name = name
     
     def get_name(self) -> str:
         pass
-
+    
     def make_sound(self):
-        if self.name == 'lion':
-            print('roar')
-        elif self.name == 'mouse':
-            print('squeak')
-        else:
-            print('...')
-
+        print('...')
+            
+            
+class Lion(Animal):
+    def __init__(self, name):
+        super().__init__(name)
+    
+    def make_sound(self):
+        print('roar')
+    
+class Mouse(Animal):
+    def __init__(self, name):
+        super().__init__(name)
+        
+    def make_sound(self):
+        print('squeak')
+        
+        
 animals = [
-    Animal('lion'),
-    Animal('mouse')
+    Lion('lion'),
+    Mouse('mouse')
 ]
 
 def animal_sound(animals: list):
@@ -32,7 +43,6 @@ animal_sound(animals)
 
 """
 Outro exemplo:
-
 Imagine que você tem uma loja que dá desconto de 20% aos seus clientes favoritos
 usando essa classe abaixo. Quando você decide dar 40% de desconto a clientes VIP,
 você decide mudar a classe da seguinte forma:
@@ -48,4 +58,3 @@ class Discount:
                 return self.price * 0.2
             if self.customer == 'vip':
                 return self.price * 0.4
-
