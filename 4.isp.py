@@ -17,10 +17,17 @@ class IJanela(ABC):
     def fechar(self):
         raise NotImplementedError
 
-class JanelaTamanhoFixo(IJanela):
+class IJanelaTamanhoFixo(IJanela, ABC):
     def maximizar(self):
         pass
 
+    def mostrar_menu(self):
+        raise NotImplementedError
+        
+    def fechar(self):
+        raise NotImplementedError
+
+class JanelaTamanhoFixo(IJanelaTamanhoFixo):
     def minimizar(self):
         pass
     

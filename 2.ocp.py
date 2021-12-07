@@ -15,23 +15,23 @@ class Animal(ABC):
             
             
 class Lion(Animal):
-    def __init__(self, name):
-        super().__init__(name)
+    def __init__(self):
+        super().__init__("lion")
     
     def make_sound(self):
         print('roar')
     
 class Mouse(Animal):
-    def __init__(self, name):
-        super().__init__(name)
+    def __init__(self):
+        super().__init__("mouse")
         
     def make_sound(self):
         print('squeak')
         
         
 animals = [
-    Lion('lion'),
-    Mouse('mouse')
+    Lion(),
+    Mouse()
 ]
 
 def animal_sound(animals: list):
