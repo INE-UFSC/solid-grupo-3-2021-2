@@ -20,6 +20,9 @@ class IJanela(ABC):
 class IJanelaTamanhoFixo(IJanela, ABC):
     def maximizar(self):
         pass
+    
+    def minimizar(self):
+        raise NotImplementedError
 
     def mostrar_menu(self):
         raise NotImplementedError
